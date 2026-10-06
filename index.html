@@ -1102,6 +1102,25 @@
         window.onload = function() {
             loadAllData();
         }
-    </script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDwyiRwOCOHNltC2Fc3fTQyPH1HUEDiM6I",
+      authDomain: "clothing-10a0d.firebaseapp.com",
+      projectId: "clothing-10a0d",
+      storageBucket: "clothing-10a0d.firebasestorage.app",
+      messagingSenderId: "1019638870341",
+      appId: "1:1019638870341:web:82c8d3c69321e9ed114e2c"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    window.db = db;
+    window.FB_SDK = { collection, getDocs, addDoc, updateDoc, deleteDoc, doc };
+    loadAllData();
+</script>
+
 </body>
 </html>
